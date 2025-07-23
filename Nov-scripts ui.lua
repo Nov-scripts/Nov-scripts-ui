@@ -1,5 +1,5 @@
-if (game:GetService("CoreGui")):FindFirstChild("NoxHub") and (game:GetService("CoreGui")):FindFirstChild("ScreenGui") then
-	(game:GetService("CoreGui")).NoxHub:Destroy();
+if (game:GetService("CoreGui")):FindFirstChild("Nexus") and (game:GetService("CoreGui")):FindFirstChild("ScreenGui") then
+	(game:GetService("CoreGui")).Nexus:Destroy();
 	(game:GetService("CoreGui")).ScreenGui:Destroy();
 end;
 _G.Primary = Color3.fromRGB(100, 100, 100);
@@ -70,12 +70,12 @@ ImageButton.BackgroundColor3 = _G.Dark;
 ImageButton.ImageColor3 = Color3.fromRGB(250, 250, 250);
 ImageButton.ImageTransparency = 0;
 ImageButton.BackgroundTransparency = 0;
-ImageButton.Image = "rbxassetid://129926413737527";
+ImageButton.Image = "rbxassetid://13940080072";
 ImageButton.AutoButtonColor = false;
 MakeDraggable(ImageButton, OutlineButton);
 CreateRounded(ImageButton, 10);
 ImageButton.MouseButton1Click:connect(function()
-	(game.CoreGui:FindFirstChild("NoxHub")).Enabled = not (game.CoreGui:FindFirstChild("NoxHub")).Enabled;
+	(game.CoreGui:FindFirstChild("Nexus")).Enabled = not (game.CoreGui:FindFirstChild("Nexus")).Enabled;
 end);
 local NotificationFrame = Instance.new("ScreenGui");
 NotificationFrame.Name = "NotificationFrame";
@@ -127,14 +127,14 @@ function Update:Notify(desc)
 	Image.BackgroundTransparency = 1;
 	Image.Position = UDim2.new(0, 8, 0, 8);
 	Image.Size = UDim2.new(0, 45, 0, 45);
-	Image.Image = "rbxassetid://129926413737527";
+	Image.Image = "rbxassetid://13940080072";
 	Title.Parent = Frame;
 	Title.BackgroundColor3 = _G.Primary;
 	Title.BackgroundTransparency = 1;
 	Title.Position = UDim2.new(0, 55, 0, 14);
 	Title.Size = UDim2.new(0, 10, 0, 20);
 	Title.Font = Enum.Font.GothamBold;
-	Title.Text = "NoxHub";
+	Title.Text = "Nexus";
 	Title.TextColor3 = Color3.fromRGB(255, 255, 255);
 	Title.TextSize = 16;
 	Title.TextXAlignment = Enum.TextXAlignment.Left;
@@ -184,7 +184,7 @@ function Update:StartLoad()
 	MainLoaderFrame.BorderSizePixel = 0;
 	local TitleLoader = Instance.new("TextLabel");
 	TitleLoader.Parent = MainLoaderFrame;
-	TitleLoader.Text = "NoxHub";
+	TitleLoader.Text = "Nexus";
 	TitleLoader.Font = Enum.Font.FredokaOne;
 	TitleLoader.TextSize = 50;
 	TitleLoader.TextColor3 = Color3.fromRGB(255, 255, 255);
@@ -260,16 +260,16 @@ local SettingsLib = {
 };
 (getgenv()).LoadConfig = function()
 	if readfile and writefile and isfile and isfolder then
-		if not isfolder("NoxHub") then
-			makefolder("NoxHub");
+		if not isfolder("Nexus") then
+			makefolder("Nexus");
 		end;
-		if not isfolder("NoxHub/Library/") then
-			makefolder("NoxHub/Library/");
+		if not isfolder("Nexus/Library/") then
+			makefolder("Nexus/Library/");
 		end;
-		if not isfile(("NoxHub/Library/" .. game.Players.LocalPlayer.Name .. ".json")) then
-			writefile("NoxHub/Library/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(SettingsLib));
+		if not isfile(("Nexus/Library/" .. game.Players.LocalPlayer.Name .. ".json")) then
+			writefile("Nexus/Library/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(SettingsLib));
 		else
-			local Decode = (game:GetService("HttpService")):JSONDecode(readfile("NoxHub/Library/" .. game.Players.LocalPlayer.Name .. ".json"));
+			local Decode = (game:GetService("HttpService")):JSONDecode(readfile("Nexus/Library/" .. game.Players.LocalPlayer.Name .. ".json"));
 			for i, v in pairs(Decode) do
 				SettingsLib[i] = v;
 			end;
@@ -281,15 +281,15 @@ local SettingsLib = {
 end;
 (getgenv()).SaveConfig = function()
 	if readfile and writefile and isfile and isfolder then
-		if not isfile(("NoxHub/Library/" .. game.Players.LocalPlayer.Name .. ".json")) then
+		if not isfile(("Nexus/Library/" .. game.Players.LocalPlayer.Name .. ".json")) then
 			(getgenv()).Load();
 		else
-			local Decode = (game:GetService("HttpService")):JSONDecode(readfile("NoxHub/Library/" .. game.Players.LocalPlayer.Name .. ".json"));
+			local Decode = (game:GetService("HttpService")):JSONDecode(readfile("Nexus/Library/" .. game.Players.LocalPlayer.Name .. ".json"));
 			local Array = {};
 			for i, v in pairs(SettingsLib) do
 				Array[i] = v;
 			end;
-			writefile("NoxHub/Library/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(Array));
+			writefile("Nexus/Library/" .. game.Players.LocalPlayer.Name .. ".json", (game:GetService("HttpService")):JSONEncode(Array));
 		end;
 	else
 		return warn("Status : Undetected Executor");
@@ -320,13 +320,13 @@ function Update:Window(Config)
 	local currentpage = "";
 	local keybind = keybind or Enum.KeyCode.RightControl;
 	local yoo = string.gsub(tostring(keybind), "Enum.KeyCode.", "");
-	local NoxHub = Instance.new("ScreenGui");
-	NoxHub.Name = "Nexus";
-	NoxHub.Parent = game.CoreGui;
-	NoxHub.DisplayOrder = 999;
+	local Nexus = Instance.new("ScreenGui");
+	Nexus.Name = "Nexus";
+	Nexus.Parent = game.CoreGui;
+	Nexus.DisplayOrder = 999;
 	local OutlineMain = Instance.new("Frame");
 	OutlineMain.Name = "OutlineMain";
-	OutlineMain.Parent = Nexuscommunity;
+	OutlineMain.Parent = Nexus;
 	OutlineMain.ClipsDescendants = true;
 	OutlineMain.AnchorPoint = Vector2.new(0.5, 0.5);
 	OutlineMain.BackgroundColor3 = Color3.fromRGB(30, 30, 30);
@@ -378,7 +378,7 @@ function Update:Window(Config)
 	NameHub.AnchorPoint = Vector2.new(0, 0.5);
 	NameHub.Size = UDim2.new(0, 1, 0, 25);
 	NameHub.Font = Enum.Font.GothamBold;
-	NameHub.Text = "Nexuscommunity";
+	NameHub.Text = "Nexus";
 	NameHub.TextSize = 20;
 	NameHub.TextColor3 = Color3.fromRGB(255, 255, 255);
 	NameHub.TextXAlignment = Enum.TextXAlignment.Left;
@@ -406,12 +406,12 @@ function Update:Window(Config)
 	CloseButton.AnchorPoint = Vector2.new(1, 0.5);
 	CloseButton.Position = UDim2.new(1, -15, 0.5, 0);
 	CloseButton.Size = UDim2.new(0, 20, 0, 20);
-	CloseButton.Image = "rbxassetid://129926413737527";
+	CloseButton.Image = "rbxassetid://7743878857";
 	CloseButton.ImageTransparency = 0;
 	CloseButton.ImageColor3 = Color3.fromRGB(245, 245, 245);
 	CreateRounded(CloseButton, 3);
 	CloseButton.MouseButton1Click:connect(function()
-		(game.CoreGui:FindFirstChild("NoxHub")).Enabled = not (game.CoreGui:FindFirstChild("NoxHub")).Enabled;
+		(game.CoreGui:FindFirstChild("Nexus")).Enabled = not (game.CoreGui:FindFirstChild("Nexus")).Enabled;
 	end);
 	local ResizeButton = Instance.new("ImageButton");
 	ResizeButton.Name = "ResizeButton";
@@ -608,8 +608,8 @@ function Update:Window(Config)
 		(getgenv()).SaveConfig();
 	end);
 	CreateButton("Reset Config", function()
-		if isfolder("NoxHub") then
-			delfolder("NoxHub");
+		if isfolder("Nexus") then
+			delfolder("Nexus");
 		end;
 		Update:Notify("Config has been reseted!");
 	end);
@@ -672,7 +672,7 @@ function Update:Window(Config)
 	MakeDraggable(Top, OutlineMain);
 	UserInputService.InputBegan:Connect(function(input)
 		if input.KeyCode == Enum.KeyCode.Insert then
-			(game.CoreGui:FindFirstChild("NoxHub")).Enabled = not (game.CoreGui:FindFirstChild("NoxHub")).Enabled;
+			(game.CoreGui:FindFirstChild("Nexus")).Enabled = not (game.CoreGui:FindFirstChild("Nexus")).Enabled;
 		end;
 	end);
 	local Dragging = false;
@@ -1553,7 +1553,7 @@ function Update:Window(Config)
 			Sep1.Size = UDim2.new(0, 20, 0, 36);
 			Sep1.Font = Enum.Font.GothamBold;
 			Sep1.RichText = true;
-			Sep1.Text = "âŒ©<font color=\"rgb(255, 0, 0)\">âŒ©</font>";
+			Sep1.Text = "Ã¢Å’Â©<font color=\"rgb(255, 0, 0)\">Ã¢Å’Â©</font>";
 			Sep1.TextColor3 = Color3.fromRGB(255, 255, 255);
 			Sep1.TextSize = 14;
 			Sep2.Name = "Sep2";
@@ -1576,7 +1576,7 @@ function Update:Window(Config)
 			Sep3.Size = UDim2.new(0, 20, 0, 36);
 			Sep3.Font = Enum.Font.GothamBold;
 			Sep3.RichText = true;
-			Sep3.Text = "<font color=\"rgb(255, 0, 0)\">âŒª</font>âŒª";
+			Sep3.Text = "<font color=\"rgb(255, 0, 0)\">Ã¢Å’Âª</font>Ã¢Å’Âª";
 			Sep3.TextColor3 = Color3.fromRGB(255, 255, 255);
 			Sep3.TextSize = 14;
 		end;
