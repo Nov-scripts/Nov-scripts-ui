@@ -1054,45 +1054,6 @@ ReopenButton.MouseButton1Click:Connect(function()
     ReopenButton.Visible = false
 end)
             
-            local ModuleName = Instance.new('TextLabel')
-            ModuleName.FontFace = Font.new('rbxasset://fonts/families/GothamSSm.json', Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
-            ModuleName.TextColor3 = Color3.fromRGB(0, 162, 255)
-            ModuleName.TextTransparency = 0.20000000298023224
-            if not settings.rich then
-                ModuleName.Text = settings.title or "Skibidi"
-            else
-                ModuleName.RichText = true
-                ModuleName.Text = settings.richtext or "<font color='rgb(255,0,0)'>Nexus</font> user"
-            end;
-            ModuleName.Name = 'ModuleName'
-            ModuleName.Size = UDim2.new(0, 205, 0, 13)
-            ModuleName.AnchorPoint = Vector2.new(0, 0.5)
-            ModuleName.Position = UDim2.new(0.0729999989271164, 0, 0.23999999463558197, 0)
-            ModuleName.BackgroundTransparency = 1
-            ModuleName.TextXAlignment = Enum.TextXAlignment.Left
-            ModuleName.BorderSizePixel = 0
-            ModuleName.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            ModuleName.TextSize = 13
-            ModuleName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ModuleName.Parent = Header
-            
-            local Description = Instance.new('TextLabel')
-            Description.FontFace = Font.new('rbxasset://fonts/families/GothamSSm.json', Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
-            Description.TextColor3 = Color3.fromRGB(0, 162, 255)
-            Description.TextTransparency = 0.699999988079071
-            Description.Text = settings.description
-            Description.Name = 'Description'
-            Description.Size = UDim2.new(0, 205, 0, 13)
-            Description.AnchorPoint = Vector2.new(0, 0.5)
-            Description.Position = UDim2.new(0.0729999989271164, 0, 0.41999998688697815, 0)
-            Description.BackgroundTransparency = 1
-            Description.TextXAlignment = Enum.TextXAlignment.Left
-            Description.BorderSizePixel = 0
-            Description.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            Description.TextSize = 10
-            Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Description.Parent = Header
-            
             local Toggle = Instance.new('Frame')
             Toggle.Name = 'Toggle'
             Toggle.BackgroundTransparency = 0.699999988079071
