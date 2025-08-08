@@ -161,7 +161,7 @@ function AcrylicBlur:create_frame()
     frame.Size = UDim2.new(1, 0, 1, 0)
     frame.Position = UDim2.new(0.5, 0, 0.5, 0)
     frame.AnchorPoint = Vector2.new(0.5, 0.5)
-    frame.BackgroundTransparency = 1
+    frame.BackgroundTransparency = 0
     frame.Parent = self._object
 
     self._frame = frame
@@ -179,7 +179,7 @@ function AcrylicBlur:create_root()
     part.CanQuery = false
     part.Locked = true
     part.CastShadow = false
-    part.Transparency = 0.98
+    part.Transparency = 0
     part.Parent = self._folder
 
     -- Create a SpecialMesh to simulate the acrylic blur effect
